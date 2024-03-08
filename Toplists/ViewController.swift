@@ -12,7 +12,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        let url = URL(string: BASE_URL + "/data/top/totaltoptiervolfull?limit=10&tsym=USD")
+        let task = URLSession.shared.dataTask(with: url!) {
+            (data, response, error) in
+            if let data = data {
+                do {
+                    let jsonData = try JSONDecoder().decode(CryptoResponseEntity.self, from: data)
+                    print(jsonData)
+                    print(jsonData.metaData.count)
+                } catch {
+                    print(error)
+                }
+
+            }
+        }
+        task.resume()
     }
 
 }
