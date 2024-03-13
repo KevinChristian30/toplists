@@ -12,6 +12,15 @@
 		1C70947D2B9AE54300F3F52B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C70947C2B9AE54300F3F52B /* ViewController.swift */; };
 		1C7094802B9AE54300F3F52B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C70947E2B9AE54300F3F52B /* Main.storyboard */; };
 		1C7094822B9AE54300F3F52B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7094812B9AE54300F3F52B /* Assets.xcassets */; };
+		1C7094932B9AF59100F3F52B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7094922B9AF59100F3F52B /* AppConstants.swift */; };
+		1C70949D2B9AF67E00F3F52B /* CryptoResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C70949C2B9AF67E00F3F52B /* CryptoResponseEntity.swift */; };
+		1C7094A02B9AF75D00F3F52B /* MetadataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C70949F2B9AF75D00F3F52B /* MetadataEntity.swift */; };
+		1C7094A22B9AF82200F3F52B /* CryptoDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7094A12B9AF82200F3F52B /* CryptoDataEntity.swift */; };
+		1C7094A42B9AF88D00F3F52B /* CoinInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7094A32B9AF88D00F3F52B /* CoinInfoEntity.swift */; };
+		1C7094A62B9AF91100F3F52B /* RatingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7094A52B9AF91100F3F52B /* RatingEntity.swift */; };
+		1C7094A82B9AF93700F3F52B /* WeissEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7094A72B9AF93700F3F52B /* WeissEntity.swift */; };
+		1C7094AA2B9AFAD500F3F52B /* RawEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7094A92B9AFAD500F3F52B /* RawEntity.swift */; };
+		1C7094AC2B9B03A700F3F52B /* CurrencyInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7094AB2B9B03A700F3F52B /* CurrencyInfoEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		1C70947F2B9AE54300F3F52B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C7094812B9AE54300F3F52B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C7094862B9AE54300F3F52B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C7094922B9AF59100F3F52B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		1C70949C2B9AF67E00F3F52B /* CryptoResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoResponseEntity.swift; sourceTree = "<group>"; };
+		1C70949F2B9AF75D00F3F52B /* MetadataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataEntity.swift; sourceTree = "<group>"; };
+		1C7094A12B9AF82200F3F52B /* CryptoDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDataEntity.swift; sourceTree = "<group>"; };
+		1C7094A32B9AF88D00F3F52B /* CoinInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoEntity.swift; sourceTree = "<group>"; };
+		1C7094A52B9AF91100F3F52B /* RatingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingEntity.swift; sourceTree = "<group>"; };
+		1C7094A72B9AF93700F3F52B /* WeissEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeissEntity.swift; sourceTree = "<group>"; };
+		1C7094A92B9AFAD500F3F52B /* RawEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawEntity.swift; sourceTree = "<group>"; };
+		1C7094AB2B9B03A700F3F52B /* CurrencyInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyInfoEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +72,128 @@
 		1C7094772B9AE54300F3F52B /* Toplists */ = {
 			isa = PBXGroup;
 			children = (
+				1C7094912B9AF57800F3F52B /* app-utils */,
+				1C70948C2B9AEDDF00F3F52B /* app-icons */,
+				1C70948E2B9AEDF600F3F52B /* app-settings */,
+				1C70948F2B9AEDFE00F3F52B /* app-modules */,
+				1C70948D2B9AEDEB00F3F52B /* app-ui */,
 				1C7094782B9AE54300F3F52B /* AppDelegate.swift */,
-				1C70947A2B9AE54300F3F52B /* SceneDelegate.swift */,
-				1C70947C2B9AE54300F3F52B /* ViewController.swift */,
-				1C70947E2B9AE54300F3F52B /* Main.storyboard */,
 				1C7094812B9AE54300F3F52B /* Assets.xcassets */,
 				1C7094862B9AE54300F3F52B /* Info.plist */,
+				1C70947E2B9AE54300F3F52B /* Main.storyboard */,
+				1C70947A2B9AE54300F3F52B /* SceneDelegate.swift */,
+				1C70947C2B9AE54300F3F52B /* ViewController.swift */,
 			);
 			path = Toplists;
+			sourceTree = "<group>";
+		};
+		1C70948C2B9AEDDF00F3F52B /* app-icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "app-icons";
+			sourceTree = "<group>";
+		};
+		1C70948D2B9AEDEB00F3F52B /* app-ui */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "app-ui";
+			sourceTree = "<group>";
+		};
+		1C70948E2B9AEDF600F3F52B /* app-settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "app-settings";
+			sourceTree = "<group>";
+		};
+		1C70948F2B9AEDFE00F3F52B /* app-modules */ = {
+			isa = PBXGroup;
+			children = (
+				1C7094942B9AF5F400F3F52B /* crypto-module */,
+			);
+			path = "app-modules";
+			sourceTree = "<group>";
+		};
+		1C7094912B9AF57800F3F52B /* app-utils */ = {
+			isa = PBXGroup;
+			children = (
+				1C7094922B9AF59100F3F52B /* AppConstants.swift */,
+			);
+			path = "app-utils";
+			sourceTree = "<group>";
+		};
+		1C7094942B9AF5F400F3F52B /* crypto-module */ = {
+			isa = PBXGroup;
+			children = (
+				1C7094952B9AF5FE00F3F52B /* view */,
+				1C7094982B9AF61300F3F52B /* entity */,
+				1C7094972B9AF60C00F3F52B /* presenter */,
+				1C7094992B9AF61B00F3F52B /* router */,
+				1C70949A2B9AF63800F3F52B /* interactor */,
+				1C70949B2B9AF64300F3F52B /* protocols */,
+			);
+			path = "crypto-module";
+			sourceTree = "<group>";
+		};
+		1C7094952B9AF5FE00F3F52B /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1C7094972B9AF60C00F3F52B /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		1C7094982B9AF61300F3F52B /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				1C70949E2B9AF71B00F3F52B /* sub-entity */,
+				1C70949C2B9AF67E00F3F52B /* CryptoResponseEntity.swift */,
+			);
+			path = entity;
+			sourceTree = "<group>";
+		};
+		1C7094992B9AF61B00F3F52B /* router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
+		1C70949A2B9AF63800F3F52B /* interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = interactor;
+			sourceTree = "<group>";
+		};
+		1C70949B2B9AF64300F3F52B /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = protocols;
+			path = "../../app-settings/protocols";
+			sourceTree = "<group>";
+		};
+		1C70949E2B9AF71B00F3F52B /* sub-entity */ = {
+			isa = PBXGroup;
+			children = (
+				1C70949F2B9AF75D00F3F52B /* MetadataEntity.swift */,
+				1C7094A12B9AF82200F3F52B /* CryptoDataEntity.swift */,
+				1C7094A32B9AF88D00F3F52B /* CoinInfoEntity.swift */,
+				1C7094A52B9AF91100F3F52B /* RatingEntity.swift */,
+				1C7094A72B9AF93700F3F52B /* WeissEntity.swift */,
+				1C7094A92B9AFAD500F3F52B /* RawEntity.swift */,
+				1C7094AB2B9B03A700F3F52B /* CurrencyInfoEntity.swift */,
+			);
+			path = "sub-entity";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +267,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C70947D2B9AE54300F3F52B /* ViewController.swift in Sources */,
+				1C7094A42B9AF88D00F3F52B /* CoinInfoEntity.swift in Sources */,
+				1C7094AA2B9AFAD500F3F52B /* RawEntity.swift in Sources */,
+				1C7094AC2B9B03A700F3F52B /* CurrencyInfoEntity.swift in Sources */,
 				1C7094792B9AE54300F3F52B /* AppDelegate.swift in Sources */,
 				1C70947B2B9AE54300F3F52B /* SceneDelegate.swift in Sources */,
+				1C7094A02B9AF75D00F3F52B /* MetadataEntity.swift in Sources */,
+				1C7094932B9AF59100F3F52B /* AppConstants.swift in Sources */,
+				1C7094A82B9AF93700F3F52B /* WeissEntity.swift in Sources */,
+				1C70949D2B9AF67E00F3F52B /* CryptoResponseEntity.swift in Sources */,
+				1C7094A62B9AF91100F3F52B /* RatingEntity.swift in Sources */,
+				1C7094A22B9AF82200F3F52B /* CryptoDataEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
