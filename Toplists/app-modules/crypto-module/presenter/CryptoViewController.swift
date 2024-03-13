@@ -101,6 +101,10 @@ extension CryptoViewController: CryptoPresenterToViewProtocol {
     }
     
     func showError() {
-        
+        let alert = UIAlertController(title: "Error", message: "Something went wrong, please pull to try again.", preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
+            _ in alert.dismiss(animated: true, completion: nil)
+        }))
     }
 }
