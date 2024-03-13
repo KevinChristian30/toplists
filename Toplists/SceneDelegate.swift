@@ -13,12 +13,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        guard let scene = (scene as? UIWindowScene) else { return }
-//        window = UIWindow(windowScene: scene)
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
         
-//        let nav = UINavigationController(rootViewController: CryptoViewController())
-//        window?.rootViewController = nav
-//        window?.makeKeyAndVisible()
+        let crypto = CryptoRouter.createModule()
+        let navigationController = UINavigationController(rootViewController: crypto)
+        navigationController.viewControllers = [crypto]
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

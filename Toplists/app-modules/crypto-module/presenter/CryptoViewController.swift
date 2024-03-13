@@ -11,6 +11,8 @@ import UIKit
 
 class CryptoViewController: UIViewController {
     var presenter: CryptoViewToPresenterProtocol?
+    var safeArea: UILayoutGuide!
+    
     private lazy var cryptoTableView: UITableView = {
         let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -22,14 +24,24 @@ class CryptoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI();
         presenter?.startFetchingCryptos()
+    }
+    
+    func setupUI() {
+        safeArea = view.layoutMarginsGuide
+        setupTopbar()
         setupTableView();
+    }
+    
+    func setupTopbar() {
+        self.navigationItem.title = "Toplists"
     }
     
     func setupTableView() {
         view.addSubview(cryptoTableView)
         NSLayoutConstraint.activate([
-            cryptoTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            cryptoTableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             cryptoTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             cryptoTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -16),
             cryptoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
