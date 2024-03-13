@@ -74,8 +74,8 @@
 			children = (
 				1C7094912B9AF57800F3F52B /* app-utils */,
 				1C70948C2B9AEDDF00F3F52B /* app-icons */,
-				1C70948F2B9AEDFE00F3F52B /* app-modules */,
 				1C70948E2B9AEDF600F3F52B /* app-settings */,
+				1C70948F2B9AEDFE00F3F52B /* app-modules */,
 				1C70948D2B9AEDEB00F3F52B /* app-ui */,
 				1C7094782B9AE54300F3F52B /* AppDelegate.swift */,
 				1C7094812B9AE54300F3F52B /* Assets.xcassets */,
@@ -104,12 +104,6 @@
 		1C70948E2B9AEDF600F3F52B /* app-settings */ = {
 			isa = PBXGroup;
 			children = (
-				1C70949B2B9AF64300F3F52B /* protocols */,
-				1C70949A2B9AF63800F3F52B /* interactor */,
-				1C7094992B9AF61B00F3F52B /* router */,
-				1C7094982B9AF61300F3F52B /* entity */,
-				1C7094972B9AF60C00F3F52B /* presenter */,
-				1C7094952B9AF5FE00F3F52B /* view */,
 			);
 			path = "app-settings";
 			sourceTree = "<group>";
@@ -133,6 +127,12 @@
 		1C7094942B9AF5F400F3F52B /* crypto-module */ = {
 			isa = PBXGroup;
 			children = (
+				1C7094952B9AF5FE00F3F52B /* view */,
+				1C7094982B9AF61300F3F52B /* entity */,
+				1C7094972B9AF60C00F3F52B /* presenter */,
+				1C7094992B9AF61B00F3F52B /* router */,
+				1C70949A2B9AF63800F3F52B /* interactor */,
+				1C70949B2B9AF64300F3F52B /* protocols */,
 			);
 			path = "crypto-module";
 			sourceTree = "<group>";
@@ -178,7 +178,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = protocols;
+			name = protocols;
+			path = "../../app-settings/protocols";
 			sourceTree = "<group>";
 		};
 		1C70949E2B9AF71B00F3F52B /* sub-entity */ = {
