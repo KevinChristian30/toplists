@@ -20,7 +20,7 @@ class CryptoViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.delegate = self
         view.dataSource = self
-        view.register(CryptoTableCell.self, forCellReuseIdentifier: "CryptoTableCell")
+        view.register(CryptoTableCell.self, forCellReuseIdentifier: CryptoTableCell.identifier)
         return view
     }()
     
@@ -81,7 +81,7 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = cryptoTableView.dequeueReusableCell(withIdentifier: "CryptoTableCell") as! CryptoTableCell
+        let cell = cryptoTableView.dequeueReusableCell(withIdentifier: CryptoTableCell.identifier) as! CryptoTableCell
         
         if let cryptoData = cryptoResponseEntity?.data[indexPath.row] {
             cell.bind(cryptoData: cryptoData)

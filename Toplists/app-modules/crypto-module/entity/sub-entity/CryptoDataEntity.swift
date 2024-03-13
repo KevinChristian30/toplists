@@ -11,9 +11,11 @@ import Foundation
 struct CryptoDataEntity: Codable {
     let coinInfo: CoinInfoEntity
     let raw: RawEntity
+    let display: DisplayEntity
     
     enum CodingKeys: String, CodingKey {
         case coinInfo = "CoinInfo";
         case raw = "RAW";
+        case display = "DISPLAY";
     }
 }

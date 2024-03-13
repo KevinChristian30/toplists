@@ -10,13 +10,45 @@ import Foundation
 import UIKit
 
 class CryptoTableCell: UITableViewCell {
+    static let identifier = "CryptoTableCell"
+    
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 26)
-        label.textColor = .red
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textColor = .black
         return label
+    }()
+    
+    private lazy var fullNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .gray
+        return label
+    }()
+    
+    private lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textColor = .black
+        return label
+    }()
+    
+    private lazy var leftStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.addSubview(self.nameLabel)
+        stackView.addSubview(self.fullNameLabel)
+        
+        return stackView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -30,16 +62,22 @@ class CryptoTableCell: UITableViewCell {
     }
     
     func bind(cryptoData: CryptoDataEntity) {
-        nameLabel.text = cryptoData.coinInfo.fullName
+        nameLabel.text = cryptoData.coinInfo.name
+        fullNameLabel.text = cryptoData.coinInfo.fullName
+        priceLabel.text = cryptoData.display.usd.price
     }
     
     func setupUI() {
-        contentView.addSubview(nameLabel)
+        contentView.addSubview(leftStackView)
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            leftStackView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            leftStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+            leftStackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 8),
+            leftStackView.heightAnchor.constraint(equalToConstant: 40),
+            nameLabel.topAnchor.constraint(equalTo: leftStackView.topAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: leftStackView.leadingAnchor),
+            fullNameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            fullNameLabel.leadingAnchor.constraint(equalTo: leftStackView.leadingAnchor),
         ])
     }
 }
