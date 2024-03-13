@@ -22,7 +22,7 @@ class CryptoRouter: CryptoPresenterToRouterProtocol {
         let router: CryptoPresenterToRouterProtocol = CryptoRouter()
     
         view.presenter = presenter
-        presenter.view = view as? CryptoPresenterToViewProtocol
+        presenter.view = view as CryptoPresenterToViewProtocol
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter

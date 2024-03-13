@@ -39,14 +39,36 @@ class CryptoTableCell: UITableViewCell {
         return label
     }()
     
+    private lazy var tickLabel: Tick = {
+        let tick = Tick()
+        tick.translatesAutoresizingMaskIntoConstraints = false
+        tick.textAlignment = .center
+        tick.font = .boldSystemFont(ofSize: 14)
+        tick.textColor = .white
+        tick.cornerRadius = 8
+        return tick
+    }()
+    
     private lazy var leftStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 8
+        stackView.addArrangedSubview(self.nameLabel)
+        stackView.addArrangedSubview(self.fullNameLabel)
         
-        stackView.addSubview(self.nameLabel)
-        stackView.addSubview(self.fullNameLabel)
+        return stackView
+    }()
+    
+    private lazy var rightStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .trailing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 8
+        stackView.addArrangedSubview(self.priceLabel)
+        stackView.addArrangedSubview(self.tickLabel)
         
         return stackView
     }()
@@ -65,19 +87,20 @@ class CryptoTableCell: UITableViewCell {
         nameLabel.text = cryptoData.coinInfo.name
         fullNameLabel.text = cryptoData.coinInfo.fullName
         priceLabel.text = cryptoData.display.usd.price
+        tickLabel.text = String(format: "%.2f(%.2f)", cryptoData.raw.usd.changeHour, cryptoData.raw.usd.changePCTHour)
+        tickLabel.backgroundColor = cryptoData.raw.usd.changePCTHour > 0 && cryptoData.raw.usd.changeHour > 0 ? .green : .red
     }
     
     func setupUI() {
         contentView.addSubview(leftStackView)
+        contentView.addSubview(rightStackView)
         NSLayoutConstraint.activate([
             leftStackView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
             leftStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
-            leftStackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 8),
-            leftStackView.heightAnchor.constraint(equalToConstant: 40),
-            nameLabel.topAnchor.constraint(equalTo: leftStackView.topAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: leftStackView.leadingAnchor),
-            fullNameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            fullNameLabel.leadingAnchor.constraint(equalTo: leftStackView.leadingAnchor),
+            leftStackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 16),
+            rightStackView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            rightStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+            rightStackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -16),
         ])
     }
 }
