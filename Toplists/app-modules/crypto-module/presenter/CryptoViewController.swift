@@ -27,9 +27,7 @@ class CryptoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        showLoadingIndicator()
-        presenter?.startFetchingCryptos()
-        
+        fetchCryptos()
     }
     
     func setupUI() {
@@ -50,6 +48,8 @@ class CryptoViewController: UIViewController {
     }
     
     func setupTableView() {
+        cryptoTableView.refreshControl = UIRefreshControl()
+        cryptoTableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         view.addSubview(cryptoTableView)
         NSLayoutConstraint.activate([
             cryptoTableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
@@ -72,6 +72,15 @@ class CryptoViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             self.view.isUserInteractionEnabled = true
         }
+    }
+    
+    func fetchCryptos() {
+        showLoadingIndicator()
+        presenter?.startFetchingCryptos()
+    }
+    
+    @objc func refresh() {
+        fetchCryptos()
     }
 }
 
@@ -97,6 +106,7 @@ extension CryptoViewController: CryptoPresenterToViewProtocol {
         DispatchQueue.main.async {
             self.cryptoTableView.reloadData()
             self.hideLoadingIndicator()
+            self.cryptoTableView.refreshControl?.endRefreshing()
         }
     }
     
