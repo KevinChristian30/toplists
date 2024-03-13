@@ -29,8 +29,8 @@ class CryptoTableCell: UITableViewCell {
         setupUI()
     }
     
-    func bind(name: String) {
-        nameLabel.text = name
+    func bind(cryptoData: CryptoDataEntity) {
+        nameLabel.text = cryptoData.coinInfo.fullName
     }
     
     func setupUI() {

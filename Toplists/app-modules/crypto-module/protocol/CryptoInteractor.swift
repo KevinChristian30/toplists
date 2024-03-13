@@ -12,12 +12,9 @@ class CryptoInteractor: CryptoPresenterToInteractorProtocol {
     var presenter: CryptoInteractorToPresenterProtocol?
     
     func fetchCryptos() {
-        let url = URL(string: BASE_URL + "/data/top/totaltoptiervolfull?limit=10&tsym=USD")
+        let url: URL? = URL(string: BASE_URL + "/data/top/totaltoptiervolfull?limit=50&tsym=USD")
         let task = URLSession.shared.dataTask(with: url!) {
             (data, response, error) in
-            print(data)
-            print(response)
-            print(error)
             if let data = data {
                 do {
                     let jsonData = try JSONDecoder().decode(CryptoResponseEntity.self, from: data)
