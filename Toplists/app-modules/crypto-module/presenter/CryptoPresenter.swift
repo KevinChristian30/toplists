@@ -20,8 +20,8 @@ class CryptoPresenter: CryptoViewToPresenterProtocol {
         interactor?.fetchCryptos()
     }
     
-    func showNewsController(navigationController: UINavigationController) {
-        router?.pushToNewsScreen(navigationController: navigationController)
+    func showNewsController(navigationController: UINavigationController, coinName: String) {
+        router?.pushToNewsScreen(navigationController: navigationController, coinName: coinName)
     }
 }
 

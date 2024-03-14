@@ -26,7 +26,7 @@ protocol CryptoPresenterToViewProtocol: class {
 
 protocol CryptoPresenterToRouterProtocol: class {
     static func createModule() -> CryptoViewController
-    func pushToNewsScreen(navigationController: UINavigationController)
+    func pushToNewsScreen(navigationController: UINavigationController, coinName: String)
 }
 
 protocol CryptoViewToPresenterProtocol: class {
@@ -34,5 +34,5 @@ protocol CryptoViewToPresenterProtocol: class {
     var interactor: CryptoPresenterToInteractorProtocol? { get set }
     var router: CryptoPresenterToRouterProtocol? { get set }
     func startFetchingCryptos()
-    func showNewsController(navigationController: UINavigationController)
+    func showNewsController(navigationController: UINavigationController, coinName: String)
 }

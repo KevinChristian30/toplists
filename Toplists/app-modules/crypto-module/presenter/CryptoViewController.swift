@@ -98,6 +98,10 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell;
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.showNewsController(navigationController: self.navigationController!, coinName: cryptoResponseEntity?.data[indexPath.row].coinInfo.name ?? "")
+    }
 }
 
 extension CryptoViewController: CryptoPresenterToViewProtocol {

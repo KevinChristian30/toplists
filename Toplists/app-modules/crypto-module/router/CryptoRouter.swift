@@ -30,7 +30,8 @@ class CryptoRouter: CryptoPresenterToRouterProtocol {
         return view
     }
     
-    func pushToNewsScreen(navigationController: UINavigationController) {
-        print("Navigate to news detail page")
+    func pushToNewsScreen(navigationController: UINavigationController, coinName: String) {
+        let newsModule = NewsRouter.createModule(coinName: coinName)
+        navigationController.pushViewController(newsModule, animated: true)
     }
 }
