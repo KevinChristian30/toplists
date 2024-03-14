@@ -1,5 +1,5 @@
 //
-//  DisplayEntity.swift
+//  DisplayInfoEntity.swift
 //  Toplists
 //
 //  Created by Nostra on 3/13/24.
@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct DisplayEntity: Codable {
-    let usd: DisplayInfoEntity
+struct DisplayInfoEntity: Codable {
+    let price: String
     
     enum CodingKeys: String, CodingKey {
-        case usd = "USD";
+        case price = "PRICE";
     }
 }
+
