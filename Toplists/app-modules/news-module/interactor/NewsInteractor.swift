@@ -7,18 +7,18 @@
 //
 
 import Foundation
+import Alamofire
 
 class NewsInteractor: NewsPresenterToInteractorProtocol {
     var presenter: NewsInteractorToPresenterProtocol?
     
     func fetchNews(_ coinName: String) {
-        let url: URL? = URL(string: BASE_URL + "/data/v2/news/?lang=EN&categories=\(coinName)")
-        let task = URLSession.shared.dataTask(with: url!) {
-            (data, response, error) in
-            if let data = data {
+        AF.request(BASE_URL + "/data/v2/news/?lang=EN&categories=\(coinName)").response {
+            response in
+            if let data = response.data {
                 do {
-                    let jsonData = try JSONDecoder().decode(NewsResponseEntity.self, from: data)
-                    self.presenter?.newsFetchedSuccess(news: jsonData)
+                    let json = try JSONDecoder().decode(NewsResponseEntity.self, from: data)
+                    self.presenter?.newsFetchedSuccess(news: json)
                 } catch {
                     self.presenter?.newsFetchFailed()
                 }
@@ -26,6 +26,5 @@ class NewsInteractor: NewsPresenterToInteractorProtocol {
                 self.presenter?.newsFetchFailed()
             }
         }
-        task.resume()
     }
 }
