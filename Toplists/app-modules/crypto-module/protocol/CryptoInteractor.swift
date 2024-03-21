@@ -7,18 +7,18 @@
 //
 
 import Foundation
+import Alamofire
 
 class CryptoInteractor: CryptoPresenterToInteractorProtocol {
     var presenter: CryptoInteractorToPresenterProtocol?
     
     func fetchCryptos() {
-        let url: URL? = URL(string: BASE_URL + "/data/top/totaltoptiervolfull?limit=50&tsym=USD")
-        let task = URLSession.shared.dataTask(with: url!) {
-            (data, response, error) in
-            if let data = data {
+        AF.request(BASE_URL + "/data/top/totaltoptiervolfull?limit=50&tsym=USD").response {
+            response in
+            if let data = response.data {
                 do {
-                    let jsonData = try JSONDecoder().decode(CryptoResponseEntity.self, from: data)
-                    self.presenter?.cryptoFetchedSucess(cryptos: jsonData)
+                    let json = try JSONDecoder().decode(CryptoResponseEntity.self, from: data)
+                    self.presenter?.cryptoFetchedSucess(cryptos: json)
                 } catch {
                     self.presenter?.cryptoFetchFailed()
                 }
@@ -26,6 +26,5 @@ class CryptoInteractor: CryptoPresenterToInteractorProtocol {
                 self.presenter?.cryptoFetchFailed()
             }
         }
-        task.resume()
     }
 }

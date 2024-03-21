@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class CryptoTableCell: UITableViewCell {
     static let identifier = "CryptoTableCell"
@@ -94,13 +95,19 @@ class CryptoTableCell: UITableViewCell {
     func setupUI() {
         contentView.addSubview(leftStackView)
         contentView.addSubview(rightStackView)
-        NSLayoutConstraint.activate([
-            leftStackView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
-            leftStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
-            leftStackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 16),
-            rightStackView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
-            rightStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
-            rightStackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -16),
-        ])
+        
+        leftStackView.snp.makeConstraints {
+            make in
+            make.top.equalTo(self.contentView.layoutMarginsGuide.snp.top)
+            make.bottom.equalTo(self.contentView.layoutMarginsGuide.snp.bottom)
+            make.leading.equalTo(self.contentView.layoutMarginsGuide.snp.leading)
+        }
+        
+        rightStackView.snp.makeConstraints {
+            make in
+            make.top.equalTo(self.contentView.layoutMarginsGuide.snp.top)
+            make.bottom.equalTo(self.contentView.layoutMarginsGuide.snp.bottom)
+            make.trailing.equalTo(self.contentView.layoutMarginsGuide.snp.trailing)
+        }
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class CryptoViewController: UIViewController {
     var presenter: CryptoViewToPresenterProtocol?
@@ -51,12 +52,13 @@ class CryptoViewController: UIViewController {
         cryptoTableView.refreshControl = UIRefreshControl()
         cryptoTableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         view.addSubview(cryptoTableView)
-        NSLayoutConstraint.activate([
-            cryptoTableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            cryptoTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            cryptoTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -16),
-            cryptoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        cryptoTableView.snp.makeConstraints {
+            make in
+            make.top.equalTo(self.safeArea.snp.top)
+            make.trailing.equalTo(self.view.snp.trailing)
+            make.leading.equalTo(self.view.snp.leading)
+            make.bottom.equalTo(self.view.snp.bottom)
+        }
     }
     
     func showLoadingIndicator() {
