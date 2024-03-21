@@ -7,5 +7,6 @@ target 'Toplists' do
 
   # Pods for Toplists
 pod 'Alamofire', '~> 5.0.0-rc.2'
+pod 'SnapKit', '~> 5.0.0'
 
 end

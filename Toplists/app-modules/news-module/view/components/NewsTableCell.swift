@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class NewsTableCell: UITableViewCell {
     static let identifier = "NewsTableCell"
@@ -73,11 +74,19 @@ class NewsTableCell: UITableViewCell {
     
     func setupUI() {
         contentView.addSubview(container)
-        NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
-            container.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
-            container.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 16),
-            container.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -16),
-        ])
+//        NSLayoutConstraint.activate([
+//            container.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+//            container.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+//            container.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 16),
+//            container.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -16),
+//        ])
+        
+        container.snp.makeConstraints {
+            make in
+            make.top.equalTo(self.contentView.layoutMarginsGuide.snp.top)
+            make.bottom.equalTo(self.contentView.layoutMarginsGuide.snp.bottom)
+            make.leading.equalTo(self.contentView.layoutMarginsGuide.snp.leading).inset(16)
+            make.trailing.equalTo(self.contentView.layoutMarginsGuide.snp.trailing).inset(16)
+        }
     }
 }
